@@ -1,6 +1,6 @@
 # Oracle instant client
 
-FROM ubuntu:14.04
+FROM python:3.10
 
 MAINTAINER Pavel Derendyaev <pderendyaev@gmail.com>
 
