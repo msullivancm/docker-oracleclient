@@ -1,0 +1,21 @@
+
+docker build --no-cache -t msullivancm/oracleclient:v1.0.0 -f ./Dockerfile .
+docker image ls #para listar a imagem 
+
+#publicar no meu DockerHub 
+docker login 
+docker push msullivancm/oracleclient:v1.0.0 
+
+#entrar no https://dockerhub.com e verificar se a imagem está lá. 
+
+docker stop oracleClient 
+docker rm oracleClient 
+
+docker run -d -p 26807:9725 --name=oracleClient --pull=always --restart=always msullivancm/oracleclient:v1.0.0
+
+
+
+
+        
+
+
