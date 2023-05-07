@@ -2,7 +2,7 @@
 
 FROM python:3.10
 
-MAINTAINER Pavel Derendyaev <pderendyaev@gmail.com>
+MAINTAINER msullivancm <marcus.sullivan@gmail.com>
 
 # Environment
 ENV LANG=en_US.utf8
@@ -16,8 +16,7 @@ ADD oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm /tmp/
 
 # Setup locale, Oracle instant client and Python
 RUN apt-get update \
-    && apt-get -y install language-pack-en alien libaio1 python python-dev python-pip \
-    && locale-gen en_US \
+    && apt-get -y install alien libaio1  \
     && alien -i /tmp/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm \
     && alien -i /tmp/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm \
     && alien -i /tmp/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm \

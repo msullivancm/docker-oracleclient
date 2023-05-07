@@ -1,6 +1,6 @@
 .PHONY: all build release
 
-IMAGE=dddpaul/oracleclient
+IMAGE=msullivancm/oracleclient
 VERSION=$(shell cat VERSION)
 
 all: build
