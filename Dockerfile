@@ -10,17 +10,17 @@ ENV ORACLE_HOME=/usr/lib/oracle/12.1/client64
 ENV PATH=$PATH:$ORACLE_HOME/bin
 ENV LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME/lib
 
-ADD oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm /tmp/
-ADD oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm /tmp/
-ADD oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm /tmp/
+ADD oracle-instantclient19.26-basic-19.26.0.0.0-1.x86_64.rpm /tmp/
+ADD oracle-instantclient19.26-sqlplus-19.26.0.0.0-1.x86_64.rpm /tmp/
+ADD oracle-instantclient19.26-devel-19.26.0.0.0-1.x86_64.rpm /tmp/
 
 # Setup locale, Oracle instant client and Python
 RUN apt-get update \
     && apt-get -y install alien libaio1  \
-    && alien -i /tmp/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm \
-    && alien -i /tmp/oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm \
-    && alien -i /tmp/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm \
-    && ln -snf /usr/lib/oracle/12.1/client64 /opt/oracle \
+    && alien -i /tmp/oracle-instantclient19.26-basic-19.26.0.0.0-1.x86_64.rpm \
+    && alien -i /tmp/oracle-instantclient19.26-sqlplus-19.26.0.0.0-1.x86_64.rpm \
+    && alien -i /tmp/oracle-instantclient19.26-devel-19.26.0.0.0-1.x86_64.rpm \
+    && ln -snf /usr/lib/oracle/19.26/client64 /opt/oracle \
     && mkdir -p /opt/oracle/network \
     && ln -snf /etc/oracle /opt/oracle/network/admin \
     && pip install cx_oracle \
